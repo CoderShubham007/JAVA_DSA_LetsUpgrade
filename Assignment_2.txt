@@ -1,0 +1,227 @@
+// Java Program to find ASCII value of a character
+
+import java.util.Scanner;
+
+class ascii_value {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter any Character : ");
+        char character = input.next().charAt(0);
+        int ascii = character;
+        System.out.println("ASCII value = "+ascii);
+        input.close();
+    }
+}
+
+// Java Program to check whether a number is even or odd .
+
+import java.util.Scanner;
+
+public class OddEven {
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		if (num%2==0) {
+		    System.out.println(num + " is Even Number");
+		} else {
+		    System.out.println(num + " is Odd Number");
+		}
+	}
+}
+
+// java program to check whether an alphabet is Vowel or Consonant.
+
+import java.util.Scanner;
+
+public class OddEven {
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter any alphabet : ");
+		char ch = read.next().charAt(0);
+		if ( (ch>='a' && ch<='z') || (ch>='A' && ch<='Z') ) {
+		    if (ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U') {
+		        System.out.println(ch + " is a Vowel");
+		    } else {
+		        System.out.println(ch + " is a Consonant");
+		    }
+		} else {
+		    System.out.println(ch + "is not a Character");
+		}
+	}
+}
+
+// Java program to find the largest among three numbers.
+
+import java.util.Scanner;
+
+public class LargestAmongThree{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.println("Enter three Numbers : ");
+		int num1 = read.nextInt();
+		int num2 = read.nextInt();
+		int num3 = read.nextInt();
+		int Largest = num1;
+		
+		if (num2>Largest) {
+		    Largest = num2;
+		}
+		if (num3>Largest) {
+		    Largest = num3;
+		}
+		System.out.println(Largest + " is the Largest Number");
+		read.close();
+	}
+}
+
+// java program to find roots of a quadratic equation.
+
+import java.util.Scanner;
+
+public class Roots
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Coefficient of x^2 : ");
+		double a = sc.nextInt();
+		System.out.println("Enter Corfficient of x : ");
+		double b = sc.nextInt();
+		System.out.println("Enter the Constant : ");
+		double c = sc.nextInt();
+		
+		double dis = (b*b) - 4*a*c;
+		
+		if (dis>0) {
+            double root1 = (-b + Math.sqrt(dis))/(2*a);
+            double root2 = (-b - Math.sqrt(dis))/(2*a);
+            
+            System.out.println("Roots are "+root1+" and "+root2);
+		} else if (dis==0) {
+		    double root = -b/(2*a);
+		    
+		    System.out.println("The root is "+root);
+		} else {
+		    System.out.println("The Equation has no real root");
+		}
+	}
+}
+
+// Java program to remove white spaces from a string
+
+import java.util.Scanner;
+
+public class RemoveWhiteSpaces
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter any String : ");
+		String name = read.nextLine();
+		
+// 		System.out.println(name.replace(" ",""));  Using In-built Method 
+
+		String new_name = "";
+		for (int i=0;i<name.length();i++) {
+		    if (name.charAt(i)!=' ') {
+		        new_name += name.charAt(i);
+		    }
+		}
+		System.out.println(new_name);
+		read.close();
+	}
+}
+
+// java program to check if a string is empty or null.
+
+import java.util.Scanner;
+
+public class EmptyString
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter any String : ");
+		String str = read.nextLine();
+		
+		if (str.length()>0) {
+		    System.out.println(str);
+		} else {
+		    System.out.println("String is Empty");
+		}
+		
+		read.close();
+	}
+}
+
+// Java program to find Leap Year
+
+import java.util.Scanner;
+
+public class LeapYear
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter year : ");
+		int year = read.nextInt();
+		
+		if (year%4==0) {
+		    System.out.println(year+" is a Leap Year");
+		} else if (year%400==0 && year%100!=0) {
+		    System.out.println(year+" is a Leap Year");
+		} else {
+		    System.out.println(year+" is not a Leap Year");
+		}
+	}
+}
+
+// Java program to find determine type of given triangle ( Equlateral, Isosceles, Scalene )
+
+import java.util.Scanner;
+
+public class TraingleType
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter three sides : ");
+		int side1 = read.nextInt();
+		int side2 = read.nextInt();
+		int side3 = read.nextInt();
+		
+		if (side1==side2 && side2==side3) {
+		    System.out.println("Equilateral Triangle");
+		} else if (side1==side2 || side1==side3 || side2==side3) {
+		    System.out.println("Isosceles Triangle");
+		} else {
+		    System.out.println("Scalene Triangle");
+		}
+		read.close();
+	}
+}
+
+// Java program to find Leap Year and display the number of days in February Accordingly
+
+import java.util.Scanner;
+
+public class LeapYear
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter year : ");
+		int year = read.nextInt();
+		
+		if (year%4==0) {
+		    System.out.println(year+" is a Leap Year");
+		    System.out.println("No of days in February = 29");
+		} else if (year%400==0 && year%100!=0) {
+		    System.out.println(year+" is a Leap Year");
+		    System.out.println("No of days in February = 29");
+		} else {
+		    System.out.println(year+" is not a Leap Year");
+		    System.out.println("No of days in February = 28");
+		}
+	}
+}
+
+
+
+
+
