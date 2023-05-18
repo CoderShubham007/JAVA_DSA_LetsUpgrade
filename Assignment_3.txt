@@ -1,0 +1,117 @@
+// Program to determine whether entered character is an alphabet or not
+
+import java.util.Scanner;
+
+public class character
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+	    System.out.print("Enter any Character : ");
+	    char ch = read.next().charAt(0);
+	    if (ch>='a' && ch<='z') {
+	        System.out.println(ch+" is a Character.");
+	    } else if (ch>='A' && ch<='Z') {
+	        System.out.println(ch+" is a Character");
+	    } else {
+	        System.out.println(ch+" is not a Character");
+	    }
+	    read.close();
+	}
+}
+
+// program to calculate grades of a student based on marks obtained
+
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter Marks (1 to 100) : ");
+		int marks = read.nextInt();
+		
+		if (marks<0 || marks>100) {
+		    System.out.println("Please Enter marks between 1 to 100.");
+		} else {
+		    if(marks>=40) {
+		        if(marks>=60) {
+		            System.out.println("Pass.");
+		        } else {
+		            System.out.println("Marhinal Pass.");
+		        }
+		    } else {
+		        System.out.println("Fail");
+		    }
+		}
+		read.close();
+	}
+}
+
+// Java program to find Leap Year
+
+import java.util.Scanner;
+
+public class LeapYear
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter year : ");
+		int year = read.nextInt();
+		
+		if (year%4==0) {
+		    System.out.println(year+" is a Leap Year");
+		} else if (year%400==0 && year%100!=0) {
+		    System.out.println(year+" is a Leap Year");
+		} else {
+		    System.out.println(year+" is not a Leap Year");
+		}
+	}
+}
+
+// Java program to find determine type of given triangle ( Equlateral, Isosceles, Scalene )
+
+import java.util.Scanner;
+
+public class TraingleType
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter three sides : ");
+		int side1 = read.nextInt();
+		int side2 = read.nextInt();
+		int side3 = read.nextInt();
+		
+		if (side1==side2 && side2==side3) {
+		    System.out.println("Equilateral Triangle");
+		} else if (side1==side2 || side1==side3 || side2==side3) {
+		    System.out.println("Isosceles Triangle");
+		} else {
+		    System.out.println("Scalene Triangle");
+		}
+		read.close();
+	}
+}
+
+// Java program to find Leap Year and display the number of days in February Accordingly
+
+import java.util.Scanner;
+
+public class LeapYear
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter year : ");
+		int year = read.nextInt();
+		
+		if (year%4==0) {
+		    System.out.println(year+" is a Leap Year");
+		    System.out.println("No of days in February = 29");
+		} else if (year%400==0 && year%100!=0) {
+		    System.out.println(year+" is a Leap Year");
+		    System.out.println("No of days in February = 29");
+		} else {
+		    System.out.println(year+" is not a Leap Year");
+		    System.out.println("No of days in February = 28");
+		}
+	}
+}
