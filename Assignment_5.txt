@@ -1,0 +1,617 @@
+// Write a Java program to display all prime numbers between 1 and 100 using a for loop.
+
+public class Main
+{
+	public static void main(String[] args) {
+		for (int i=1;i<=100;i++) {
+		    int count = 0;
+		    for (int j=1;j<=i;j++) {
+		        if (i%j==0) {
+		            count++;
+		        }
+		    }
+		    if (count==2) {
+		        System.out.println(i);
+		    }
+		}
+	}
+}
+
+// Write a Java program to calculate the sum of all numbers between 1 and 100 using a for loop
+
+public class Main
+{
+	public static void main(String[] args) {
+		int sum = 0;
+		for (int i=1;i<=100;i++) {
+		    sum += i;
+		}
+		System.out.println(sum);
+	}
+}
+
+// Write a Java program to print the multiplication table of a given number using a for loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		
+		for (int i=1;i<=10;i++) {
+		    System.out.println(num+" x "+i+" = "+(num*i));
+		}
+		read.close();
+	}
+}
+
+// Write a Java program to print the Fibonacci series up to a given number using a for loop
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int first = 0;
+		int second = 1;
+		
+		for (int i=1;i<=num;i++) {
+		    System.out.println(first);
+		    int temp = first;
+		    first = second;
+		    second = first + temp;
+		}
+		
+		read.close();
+	}
+}
+
+// Write a Java program to find the factorial of a given number using a for loop
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int fact = 1;
+		
+		for (int i=1;i<=num;i++) {
+		    fact=fact*i;
+		} 
+		System.out.println("Factorial of "+num+" is "+fact);
+		read.close();
+	}
+}
+
+// Write a Java program to print the sum of all even numbers between 1 and 100 using a for loop.
+
+public class Main
+{
+	public static void main(String[] args) {
+		int sum = 0;
+		for (int i=1;i<=100;i++) {
+		    if (i%2==0)
+		        sum += i;
+		}
+		System.out.println("Sum = "+sum);
+	}
+}
+
+// Write a Java program to print the first n terms of the geometric series using a for loop.
+// a, ar, ar2, ar3
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+	    System.out.print("Enter total Number of terms : ");
+	    int n = read.nextInt();
+	    System.out.print("Enter first term : ");
+	    int a = read.nextInt();
+	    System.out.print("Enter common ratio : ");
+	    int r = read.nextInt();
+	    int term;
+	    for (int i=0;i<n;i++) {
+	        term = a * (int) Math.pow(r,i);
+	        System.out.print(term+" ");
+	    }
+	    read.close();
+	}
+}
+
+// Write a Java program to print all Armstrong numbers between 1 and 1000 using a for loop.
+
+public class Main
+{
+	public static void main(String[] args) {  
+	    int digit, rem, rev;
+	    for (int i=1;i<=1000;i++) {
+	        digit = 0;
+	        for (int j=i;j!=0;j/=10) {
+	            digit++;
+	        }
+	        rem = 0;
+	        rev = 0;
+	        for (int k=i;k!=0;k/=10) {
+	            rem = k%10;
+	            rev += (int) Math.pow(rem,digit);
+	        }
+	        if (i==rev) {
+	            System.out.println(i);
+	        }
+	    }
+	}
+}
+
+/* Write a Java program to print the following pattern using a for loop:
+    * 
+    * *
+    * * *
+*/
+public class Main
+{
+	public static void main(String[] args) {  
+	    
+	    for (int i=1;i<=5;i++) {
+	        for (int j=1;j<=i;j++) {
+	            System.out.print("* ");
+	        }
+	        System.out.println();
+	    }
+	}
+}
+
+// Write a Java program to find the GCD of two numbers using a for loop
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter first Number : ");
+		int num1 = read.nextInt();
+		System.out.print("Enter second Number :");
+		int num2 = read.nextInt();
+		int greatest;
+		if (num1>num2) {
+		    greatest = num1;
+		} else {
+		    greatest = num2;
+		}
+		int gcd = 0;
+		for (int i=1;i<=greatest;i++) {
+		    if ( (num1%i==0) && (num2%i==0) ) {
+		        gcd = i;
+		    }
+		}
+		System.out.println("GCD of "+num1+" and "+num2+" is "+gcd);
+		read.close();
+	}
+}
+
+// Write a Java program to find the factorial of a given number using a while loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int fact = 1;
+		int i = 1;
+		while (i<=num) {
+		    fact *= i;
+		    i++;
+		}
+		System.out.println("Factorial of "+num+" is "+fact);
+		read.close();
+	}
+}
+
+// Write a Java program to print the multiplication table of a given number using a while loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int i = 1;
+		
+		while (i<=10) {
+		    System.out.println(num+" x "+i+" = "+(num*i));
+		    i++;
+		}
+		read.close();
+	}
+}
+
+// Write a Java program to display all prime numbers between 1 and 100 using a while loop.
+
+public class Main
+{
+	public static void main(String[] args) {
+	    int i = 1;
+	    
+	    while (i<=100) {
+	        int j=1;
+	        int count = 0;
+	        while (j<=i) {
+	            if (i%j==0)
+	                count++;
+	            j++;
+	        }
+	        if (count==2) {
+	            System.out.println(i);
+	        }
+	        i++;
+	    }
+	}
+}
+
+// Write a Java program to print the Fibonacci series up to a given number using a while loop
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+	    System.out.print("Enter a Number : ");
+	    int num = read.nextInt();
+	    int i = 1;
+	    int first = 0, second = 1;
+	    while (i<=num) {
+	        System.out.println(first);
+	        int temp = first;
+	        first = second;
+	        second = first + temp;
+	        i++;
+	    }
+	}
+}
+
+// Write a Java program to print the sum of all even numbers between 1 and 100 using a while loop.
+
+public class Main
+{
+	public static void main(String[] args) {
+	    int i = 1;
+	    int sum = 0;
+	    while (i<=100) {
+	        if (i%2==0)
+	            sum += i;
+	        i++;
+	    }
+	    System.out.println("Sum = "+sum);
+	}
+}
+
+// Write a Java program to check whether a given number is palindrome or not using a while loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+	    System.out.print("Enter a Number : ");
+	    int num =  read.nextInt();
+	    int temp = num,rev = 0;
+	    while (num!=0) {
+	        rev = (rev*10) + (num%10);
+	        num /= 10;
+	    }
+	    if (temp==rev) {
+	        System.out.println("Palindrome Number");
+	    } else {
+	        System.out.println("Not a Palindrome Number");
+	    }
+	    read.close();
+	}
+}
+
+// Write a Java program to print all the factors of a given number using a while loop.
+
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int i = 1;
+		while (i<=num) {
+		    if (num%i==0) {
+		        System.out.println(i);
+		    }
+		    i++;
+		}
+	}
+}
+
+// Write a Java program to reverse a given number using a while loop.
+
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int rev = 0;
+		while (num!=0) {
+		    rev = (rev*10) + (num%10);
+		    num /= 10;
+		}
+		System.out.println(rev);
+	}
+}
+
+// Write a Java program to calculate the sum of digits of a given number using a while loop.
+
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int sum = 0;
+		while (num!=0) {
+		    int rem = num%10;
+		    sum += (int) Math.pow(rem,2);
+		    num /= 10;
+		}
+		System.out.println(sum);
+	}
+}
+
+// Write a Java program to find the Armstrong numbers between 1 and 1000 using a while loop.
+
+public class Main
+{
+	public static void main(String[] args) {
+	    int i = 1;
+	    int digit;
+	    int sum = 0;
+	    while (i<=1000) {
+	        digit = 0;
+	        int temp = i;
+	        while (temp!=0) {
+	            digit++;
+	            temp /= 10;
+	        }
+	        sum = 0;
+	        int temp2 = i;
+	        while (temp2!=0) {
+	            int rem = temp2%10;
+	            sum += (int) Math.pow(rem,digit);
+	            temp2 /= 10;
+	        }
+	        if (sum==i) {
+	            System.out.println(i);
+	        }
+	        i++;
+	    }
+	}
+}
+
+// Write a Java program to calculate the factorial of a given number using a do-while loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+	    System.out.print("Enter a Number : ");
+	    int num = read.nextInt();
+	    int fact=1, i=1;
+	    do {
+	        fact=fact*i;
+	        i++;
+	    } while(i<=num);
+	    System.out.println("Factorial of "+num+" is "+fact);
+	}
+}
+
+// Write a Java program to print the multiplication table of a given number using a do-while loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+	    System.out.print("Enter a Number : ");
+	    int num = read.nextInt();
+	    int i=1;
+	    
+	    do {
+	        System.out.println(num+" x "+i+" = "+(num*i));
+	        i++;
+	    } while(i<=10);
+	    read.close();
+	}
+}
+
+// Write a Java program to display all prime numbers between 1 and 100 using a do-while loop.
+
+public class Main
+{
+	public static void main(String[] args) {
+		int i = 1;
+		do {
+		    int count = 0;
+		    int j = 1;
+		    do {
+		        if (i%j==0) {
+		            count++;
+		        }
+		        j++;
+		    } while (j<=i);
+		    if (count==2) {
+		        System.out.println(i);
+		    }
+		    i++;
+		} while(i<=100);
+	}
+}
+
+// Write a Java program to print the Fibonacci series up to a given number using a do-while loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int first = 0, second = 1, i = 1;
+		do {
+		    System.out.println(first);
+		    int temp = first;
+		    first = second;
+		    second = temp + first;
+		    i++;
+		} while(i<=num);
+		read.close();
+	}
+}
+
+// Write a Java program to print the sum of all even numbers between 1 and 100 using a do-while loop.
+
+public class Main
+{
+	public static void main(String[] args) {
+		int i = 1;
+		int sum = 0;
+		do {
+		    if (i%2==0) {
+		        sum += i;
+		    }
+		    i++;
+		} while(i<=100);
+		System.out.println(sum);
+	}
+}
+
+// Write a Java program to check whether a given number is palindrome or not using a do-while loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int temp = num;
+		int rev = 0;
+		do {
+		    rev = (rev*10) + (num%10);
+		    num /= 10;
+		} while(num!=0);
+		if (temp==rev) {
+		    System.out.println("palindrome");
+		} else {
+		    System.out.println("Not palindrome");
+		}
+		read.close();
+	}
+}
+
+// Write a Java program to print all the factors of a given number using a do-while loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int i = 1;
+		do {
+		    if (num%i==0) {
+		        System.out.println(i);
+		    }
+		    i++;
+		} while (i<=num);
+		read.close();
+	}
+}
+
+// Write a Java program to reverse a given number using a do-while loop
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int rev = 0;
+		do {
+		    rev = (rev*10) + (num%10);
+		    num /= 10;
+		} while (num!=0);
+		System.out.println(rev);
+		read.close();
+	}
+}
+
+// Write a Java program to calculate the sum of digits of a given number using a do-while loop.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		int sum = 0;
+		do {
+		    sum += (num%10);
+		    num /= 10;
+		} while(num!=0);
+		System.out.println(sum);
+		read.close();
+	}
+}
+
+// Write a Java program to find the Armstrong numbers between 1 and 1000 using a do-while loop.
+
+public class Main
+{
+	public static void main(String[] args) {
+		int i = 1;
+		do {
+		    int digits = 0;
+		    int temp1 = i; 
+		    do {
+		        digits++;
+		        temp1 /= 10;
+		    } while (temp1!=0);
+		    int sum = 0;
+		    int temp2 = i;
+		    do {
+		        int rem = temp2%10;
+		        sum += (int) Math.pow(rem,digits);
+		        temp2 /= 10;
+		    } while (temp2!=0);
+            if (sum==i) {
+                System.out.println(i);
+            }
+            i++;
+		} while(i<=1000);
+	}
+}
+
