@@ -1,0 +1,451 @@
+// Write a program to find the largest of three numbers using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter first Number : ");
+		int num1 = read.nextInt();
+		System.out.print("Enter second Number : ");
+		int num2 = read.nextInt();
+		System.out.print("Enter third Number : ");
+		int num3 = read.nextInt();
+		
+		findLargest(num1, num2, num3);
+		read.close();
+	}
+	
+	public static void findLargest(int num1, int num2, int num3) {
+	    int largest = num1;
+	    
+	    if (num2>largest) {
+	        largest = num2;
+	    }
+	    
+	    if (num3>largest) {
+	        largest = num3;
+	    }
+	    System.out.println("Largest : "+largest);
+	}
+}
+
+// Write a program to calculate the factorial of a number using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		
+		factorial(num);
+		read.close();
+	}
+	
+	public static void factorial(int n) {
+	    int fact = 1;
+	    
+	    for (int i=1;i<=n;i++) {
+	        fact *= i;
+	    }
+	    System.out.println("Factorial of "+n+" is "+fact);
+	}
+}
+
+// Write a program to check if a given number is prime or not using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		
+        if (isPrime(num)) {
+            System.out.println(num+" is a Prime Number");
+        } else {
+            System.out.println(num+" is not a Prime Number");
+        }
+	}
+	
+	public static boolean isPrime(int n) {
+	    if (n<=1) {
+	        return false;
+	    }
+	    
+	    for (int i=2;i<n;i++) {
+	        if (n%i==0) {
+	            return false;
+	        }
+	    }
+	    return true;
+	}
+}
+
+// Write a program to convert temperature from Celsius to Fahrenheit using functions
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		float Celsius = read.nextInt();
+		
+        convertToFahrenheit(Celsius);
+        read.close();
+	}
+	
+	public static void convertToFahrenheit(float c) {
+	    float Fahrenheit = (c * 9/5 + 32);
+	    System.out.println("In Fahrenheit : "+Fahrenheit);
+	}
+}
+
+// Write a program to reverse a string using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter any String : ");
+	    String str = read.nextLine();
+	    
+	    reverseString(str);
+	    
+        read.close();
+	}
+	
+	public static void reverseString(String s) {
+        String reverse = "";
+        int size = s.length();
+        
+        for (int i=size-1;i>=0;i--) {
+            reverse += s.charAt(i);
+        }
+        
+        System.out.println("Reverse : "+reverse);
+	}
+}
+
+// Write a program to find the sum of all even numbers between two numbers using functions
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter first Number : ");
+	    int range1 = read.nextInt();
+	    
+	    System.out.print("Enter second Number : ");
+	    int range2 = read.nextInt();
+	    
+        printSum(range1, range2);
+	    
+        read.close();
+	}
+	
+	public static void printSum(int n1, int n2) {
+        int sum = 0;
+        for (int i=n1;i<=n2;i++) {
+            if (i%2==0) {
+                sum += i;
+            }
+        }
+        System.out.println("Sum : "+sum);
+	}
+}
+
+// Write a program to find the GCD of two numbers using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter first Number : ");
+	    int num1 = read.nextInt();
+	    
+	    System.out.print("Enter second Number : ");
+	    int num2 = read.nextInt();
+	    
+        findGCD(num1, num2);
+	    
+        read.close();
+	}
+	
+	public static void findGCD(int n1, int n2) {
+        int greater;
+        
+        if (n1>n2) {
+            greater = n1;
+        } else {
+            greater = n2;
+        }
+        
+        int gcd = 1;
+        
+        for (int i=1;i<=greater;i++) {
+            if ( (n1%i==0) && (n2%i==0) ) {
+                gcd = i;
+            }
+        }
+        System.out.println("GCD : "+gcd);
+	}
+}
+
+// Write a program to count the number of occurrences of a character in a string using functions
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter any String : ");
+		String str = read.nextLine();
+		
+		System.out.print("Enter the Character : ");
+		char ch = read.next().charAt(0);
+		
+		countOccurance(str, ch);
+		read.close();
+	}
+	
+	public static void countOccurance(String str, char ch) {
+	    int size =  str.length();
+	    int count = 0;
+	    for (int i=0;i<size;i++) {
+	        if (ch==str.charAt(i)) {
+	            count++;
+	        }
+	    }
+	    System.out.println(ch+" has "+count+" Occurances.");
+	}
+}
+
+// Write a program to check if a given string is a palindrome or not using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter any String : ");
+		String str = read.nextLine();
+		
+		if (isPalindrome(str)) {
+		    System.out.println("Palindrome String.");
+		} else {
+		    System.out.println("Not Palindrome String.");
+		}
+		read.close();
+	}
+	
+	public static boolean isPalindrome(String s) {
+	    s = s.toLowerCase();
+	    int size = s.length();
+	    String rev = "";
+	    
+	    for (int i=size-1;i>=0;i--) {
+	        rev += s.charAt(i);
+	    }
+	    
+	    if (s.equals(rev)) {
+	        return true;
+	    }
+	    return false;
+	}
+}
+
+// Write a program to find the area of a circle using functions
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter radius of Circle : ");
+		double radius = read.nextDouble();
+		
+		findArea(radius);
+		
+		read.close();
+	}
+	
+	public static void findArea(double r) {
+	    double area = 3.14 * r * r;
+	    System.out.println("Area : "+area);
+	}
+}
+
+// Write a program to check if a given number is Armstrong or not using functions
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		
+		if (isArmstrong(num)) {
+		    System.out.println("Armstrong Number");
+		} else {
+		    System.out.println("Not Armstrong Number");
+		}
+		read.close();
+	}
+	
+	public static int countDigits(int n) {
+	    int count = 0;
+	    while (n!=0) {
+	        count++;
+	        n /= 10;
+	    }
+	    return count;
+	}
+	
+	public static boolean isArmstrong(int n) {
+	    int rev = 0;
+	    int temp = n;
+	    int digits = countDigits(n);
+	    while (n!=0) {
+	        int rem = n%10;
+	        rev += (int) Math.pow(rem,digits);
+	        n /= 10;
+	    }
+	    if (temp==rev) {
+	        return true;
+	    }
+	    return false;
+	}
+}
+
+// Write a program to calculate the sum of digits of a number using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		
+		printSum(num);
+		
+		read.close();
+	}
+	
+	public static void printSum(int n) {
+	    int sum = 0;
+	    
+	    while (n!=0) {
+	        sum += (n%10);
+	        n /= 10;
+	    }
+	    System.out.println("Sum : "+sum);
+	}
+}
+
+// Write a program to check if a given string contains only alphabets using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter any String : ");
+		String str = read.nextLine();
+		
+		if (checkAlphabet(str)) {
+		    System.out.println(str+" contains only Aplhabets.");
+		} else {
+		    System.out.println(str+" has some special Characters or Numbers");
+		}
+	}
+	
+	public static boolean checkAlphabet(String s) {
+	    s = s.toLowerCase();
+	    for (int i=0;i<s.length();i++) {
+	        if (!(s.charAt(i)>='a' && s.charAt(i)<='z')) {
+	            return false;
+	        }
+	    }
+	    return true;
+	}
+}
+
+// Write a program to check if a given number is perfect or not using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		
+		if (isPerfect(num)) {
+		    System.out.println("Perfect Number");
+		} else {
+		    System.out.println("Not Perfect Number");
+		}
+	}
+	
+	public static boolean isPerfect(int n) {
+	    int sum = 0;
+	    for (int i=1;i<n;i++) {
+	        if (n%i==0) {
+	            sum += i;
+	        }
+	    }
+	    if (sum==n) {
+	        return true;
+	    }
+	    return false;
+	}
+}
+
+// Write a program to find the HCF of three numbers using functions.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter first Number : ");
+		int num1 = read.nextInt();
+		System.out.print("Enter seconf Number : ");
+		int num2 = read.nextInt();
+		System.out.print("Enter third Number : ");
+		int num3 = read.nextInt();
+		
+		findHCF(num1, num2, num3);
+		
+		read.close();
+	}
+	
+	public static void findHCF(int n1, int n2, int n3) {
+	    int hcf = 1;
+	    int max = n1;
+	    if (n2 > max) {
+	        max = n2;
+	    }
+	    if (n3>max) {
+	        max = n3;
+	    }
+	    
+	    for (int i=1;i<=max;i++) {
+	        if (n1%i==0 && n2%i==0 && n3%i==0) {
+	            hcf = i;
+	        }
+	    }
+	    System.out.println("HCF : "+hcf);
+	}
+}
+
