@@ -1,0 +1,68 @@
+// Mini-Calculator
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.println("------- Calculator -------");
+		
+		System.out.print("\nEnter operation u want to perform : ");
+		System.out.println("\nAddition(+).\nSubtration(-)\nMultiplication(*)\nDivision\nRemainder(%)\nPower(^)");
+		System.out.println("\nEnter 'c' to clear & 'q' to quit in case of Operation.");
+		
+		while (true) {
+		    System.out.print("\nEnter Number : ");
+		    double num1 = read.nextDouble();
+		    
+		    double result = num1;
+		    
+		    while (true) {
+		        System.out.print("Enter operation : ");
+		        char ch = read.next().charAt(0);
+		        // to clear previous output
+		        if (ch=='c' || ch =='C') {
+		            System.out.println("\nPrevious Result Cleared...");
+		            break;
+		        }
+		        // to exit from the Loop
+		        if (ch=='q' || ch=='Q') {
+		            System.out.println("\nExiting....");
+		            System.exit(0);
+		        }
+		    
+		        System.out.print("Enter Number : ");
+		        double num2 = read.nextDouble(); 
+		        
+                switch (ch) {
+                    case '+':
+                        result += num2;
+                        System.out.println("Result : "+result);
+                        break;
+                    case '-':
+                        result -= num2;
+                        System.out.println("Result : "+result);
+                        break;
+                    case '*':
+                        result *= num2;
+                        System.out.println("Result : "+result);
+                        break;
+                    case '/':
+                        result /= num2;
+                        System.out.println("Result : "+result);
+                        break;
+                    case '%':
+                        result %= num2;
+                        System.out.println("Result : "+result);
+                        break;
+                    case '^':
+                        result = (int) Math.pow(result,num2);
+                        System.out.println("Result : "+result);
+                        break;
+                    default:
+                        System.out.println("Invalid Operator.");
+                }
+		    }
+		}
+	}
+}
