@@ -1,0 +1,219 @@
+// Write a recursive function to calculate the factorial of a number.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter a Number : ");
+		int num = read.nextInt();
+		
+		int factorial = fact(num);
+		
+		System.out.println("Factorial : "+factorial);
+		read.close();
+	}
+	
+	public static int fact(int n) {
+	    if (n==0) {
+	        return 1;
+	    }
+	    return n * fact(n-1);
+	}
+}
+
+// Write a recursive function to calculate the nth Fibonacci number.
+
+import java.util.Scanner;
+
+public class fibonacci_series {
+    public static void main(String[] args) {
+        Scanner read = new Scanner(System.in);
+        System.out.print("Enter a Number : ");
+        int num = read.nextInt();
+
+        int nth_fibonacci = findFibonacci(num);
+        System.out.println(num+"th Fibonacci Number is "+nth_fibonacci);
+        read.close();
+    }
+
+    public static int findFibonacci(int n) {
+        if (n==0 || n==1) return n;
+        return findFibonacci(n-1) + findFibonacci(n-2);
+    }
+}
+
+// Write a recursive function to find the sum of the digits in a number.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+        Scanner read = new Scanner(System.in);
+        System.out.print("Enter a Number : ");
+        int num = read.nextInt();
+        
+        int result = sumOfDigit(num);
+        System.out.println(result);
+	}
+	
+	public static int sumOfDigit(int num) {
+	    if (num==0) {
+	        return 0;
+	    }
+	    return (num%10) + sumOfDigit(num/10);
+	}
+}
+
+// Write a recursive function to calculate the GCD of two numbers.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner read = new Scanner(System.in);
+        System.out.print("Enter first Number : ");
+        int num1 = read.nextInt();
+        System.out.print("Enter second Number : ");
+        int num2 = read.nextInt();
+
+        int min = num1;
+        if (num2<num1) {
+            min = num2;
+        }
+
+        int result = findGCD(min, num1, num2);
+        System.out.println("GCD : "+result);
+        
+        read.close();
+    }
+
+    public static int findGCD(int min,int n1, int n2) {
+        if (n1%min==0 && n2%min==0) return min; 
+        
+        return findGCD(min-1, n1, n2);
+    }
+
+}
+
+// Write a recursive function to reverse a string.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner read = new Scanner(System.in);
+        System.out.print("Enter any String : ");
+        String str = read.nextLine();
+        
+        int size = str.length();
+        String result = reverseString(str, size);
+        System.out.println("Result : "+result);
+        
+        read.close();
+    }
+
+    public static String reverseString(String s, int size) {
+        // Base Case
+        if(size==0) {
+            return "";
+        }
+        // Recursive Case
+        return s.charAt(size-1) + reverseString(s, size-1);
+    }
+}
+
+// Write a recursive function to check if a given word is a palindrome or not.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner read = new Scanner(System.in);
+        System.out.print("Enter any String : ");
+        String str = read.nextLine();
+        
+        int size = str.length();
+        String result = reverseString(str, size);
+        
+        
+        if (str.toLowerCase().equals(result.toLowerCase())) {
+            System.out.println(str+" is a Palindrome String.");
+        } else {
+            System.out.println(str+" is not a Palindrome String.");   
+        }
+        
+        read.close();
+    }
+
+    public static String reverseString(String s, int size) {
+        // Base Case
+        if(size==0) {
+            return "";
+        }
+        // Recursive Case
+        return s.charAt(size-1) + reverseString(s, size-1);
+    }
+}
+
+// Write a recursive function to calculate the sum of all even numbers between two given numbers.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter first Number : ");
+		int range1 = read.nextInt();
+		System.out.print("Enter second Number : ");
+		int range2 = read.nextInt();
+		
+		int sum = calculateSum(range1, range2);
+		System.out.println("Sum : "+sum);
+		read.close();
+	}
+	
+	// Brute-Force
+	public static int calculateSum(int n1, int n2) {
+	    // Base Case
+	    if (n1>n2) {
+	        return 0;
+	    }
+	    if (n1%2==1) {
+	        n1 += 1;
+	    }
+	    // Recursive Case
+	    return n1 + calculateSum(n1+2,n2);
+	}
+}
+
+// Write a recursive function to remove all occurrences of a given character from a string.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+		System.out.print("Enter any String : ");
+		String str = read.nextLine();
+		System.out.print("Enter Character : ");
+		char ch = read.next().charAt(0);
+		
+		String result = removeAllOccurances(str, ch, 0);
+		System.out.println(result);
+		
+		read.close();
+	}
+	
+	public static String removeAllOccurances(String s, char c, int i) {
+	    // Base Case
+	    if (i==s.length()) return "";
+	    
+	    else {
+	        if (s.charAt(i)!=c)
+	            return s.charAt(i) + removeAllOccurances(s,c,i+1);
+	        else 
+	            return removeAllOccurances(s,c,i+1);
+	    }
+	}
+}
+
+
+
