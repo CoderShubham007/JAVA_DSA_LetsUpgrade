@@ -1,0 +1,640 @@
+/* Create a class called Rectangle with instance variables length and width. Implement a method calculateArea() that calculates
+and returns the area of the rectangle. Create an object of the Rectangle class and invoke the calculateArea() method. */
+import java.util.Scanner;
+
+class Rectangle {
+    double length;
+    double width;
+    
+    public double calculateArea() {
+        return (length*width);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Enter Rectangle Length : ");
+		double length = read.nextDouble(); 
+		
+		System.out.print("Enter Rectangle width : ");
+		double width = read.nextDouble();
+		
+		Rectangle obj = new Rectangle();
+	    obj.length = length;
+	    obj.width = width;
+	    
+	    System.out.println("Area : " + obj.calculateArea() );
+	}
+}
+
+/*  Create a class called Student with instance variables name, age, and grade. Implement multiple constructors to
+    initialize the Student object with different combinations of parameters. Create objects of the Student class using 
+    different constructors and display their details. */
+
+class Student {
+    
+    String name;
+    int age;
+    String grade;
+    
+    Student() {
+        name = "Unknown";
+        age = 0;
+        grade = null;
+    }
+    
+    Student(String name) {
+        this.name = name;
+    }
+    
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    Student(String name, String grade) {
+        this.name = name;
+        this.grade = grade;
+    }
+    
+    Student(String name, int age, String grade) {
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+    
+    void display() {
+        System.out.println("\nName : "+name+"\nAge : "+age+"\nGrade : "+grade);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Student s1 = new Student();
+	    s1.display();
+	    
+	    Student s2 = new Student("Shubham");
+	    s2.display();
+	    
+	    Student s3 = new Student("Dean", 20);
+	    s3.display();
+	    
+	    Student s4 = new Student("Shubh", "D");
+	    s4.display();
+	    
+	    Student s5 = new Student("John", 24, "A");
+	    s5.display();
+	}
+}
+
+/*  Create a class called Employee with instance variables name, id, and salary. Implement a parameterized constructor
+that accepts name, id, and salary as parameters. Use the this keyword to assign the parameter values to the instance
+variables. Display the employee details. */
+
+class Employee {
+    
+    String name;
+    int id;
+    double salary;
+    
+    Employee(String name, int id, double salary) {
+        this.name = name;
+        this.id = id;
+        this.salary = salary;
+    }
+    
+    void display() {
+        System.out.println("\nID : "+id+"\nName : "+name+"\nSalary : "+salary);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    Employee e1 = new Employee("Dilli", 456, 34566.45);
+	    e1.display();
+	}
+}
+
+/*  Create a class called BankAccount with instance variables accountNumber, balance, and pinNumber.Implement public 
+    and private methods to deposit and withdraw money from the account, and display the account balance.
+    Ensure that the pinNumber is private and cannot be accessed directly.. */
+
+class BankAccount {
+    
+    int accountNumber = 03050;
+    int balance = 0;
+    private int pinNumber = 7439;
+    
+    public void deposit(int amount) {
+        balance += amount;
+    }
+    
+    private void withdraw(int amount) {
+        if (amount>balance) {
+            System.out.println("Not Sufficient Balance");
+        } else {
+            System.out.println("Whithdrawl Amount : "+amount);
+            balance -= amount; 
+        }
+    }
+    
+    public void withdrawMoney(int amount, int pin) {
+        if (pin==pinNumber) {
+            withdraw(amount);
+        } else {
+           System.out.println("Incorrect Pin Number"); 
+        }
+    }
+    
+    void displayBalance() {
+        System.out.println("Available Balance : "+balance);    
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    BankAccount b1 = new BankAccount();
+        b1.deposit(2000);
+        b1.displayBalance();
+        
+        b1.withdrawMoney(1000, 7439);
+        
+        b1.displayBalance();
+	}
+}
+
+/*  You are building a library management system. Create a class called Book with instance variables title, author,
+    and availableCopies. Implement a method borrowBook(int numCopies) that allows a library member to borrow a certain
+    number of copies of the book. The method should decrement the availableCopies by the number of copies borrowed.
+    Create an object of the Book class representing a book with a title, author, and initial number of available copies.
+    Display the details of the book and simulate borrowing a few copies using the borrowBook() method. */
+
+class Book {
+    
+    String title;
+    String author;
+    int availableCopies;
+    
+    public void borrowBook(int numCopies) {
+        if (numCopies>availableCopies) {
+            System.out.println("\n"+numCopies+" copies of the book are not available");
+        } else {
+            System.out.println("\nBorrowed Books : "+numCopies);
+            availableCopies -= numCopies;
+        }
+    }
+    
+    public void printDetails() {
+        System.out.println("\nTitle : "+title+"\nAuthor : "+author+"\nCopies Available : "+availableCopies);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	   Book b = new Book();
+	   b.title = "JAVA";
+	   b.author = "Henry";
+	   b.availableCopies = 27;
+	   b.printDetails();
+	   
+	   b.borrowBook(3);
+	   
+	   b.printDetails();
+	}
+}
+
+/*  Design a class called MobilePhone that represents a mobile phone. The class should have instance variables such as
+    brand, model, and price. Implement a constructor that takes in values for these variables. Use the this keyword to
+    assign the parameter values to the instance variables. Create an object of the MobilePhone class representing a
+    specific phone model. Display the brand, model, and price of the phone. */
+
+class MobilePhone {
+    
+    String brand;
+    String model;
+    double price;
+    
+    MobilePhone(String brand, String model, double price) {
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+    }
+    
+    public void display() {
+        System.out.println("\nBrand : "+brand+"\nModel : "+model+"\nPrice : "+price);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	   MobilePhone m1 = new MobilePhone("Samsung", "Galaxy M13", 12999);
+	   m1.display();
+	   
+	   MobilePhone m2 = new MobilePhone("Realme", "C2", 7000);
+	   m2.display();
+	}
+}
+
+/*  You are working on a banking application. Create a class called Customer with instance variables name,
+    accountNumber, and balance. Implement a constructor that accepts values for these variables. Use the this
+    keyword to assign the parameter values to the instance variables. Implement methods to deposit and withdraw
+    money from the customer's account, ensuring that the balance is updated accordingly. Create an object of
+    the Customer class representing a bank customer. Display the customer's details and simulate a few transactions
+    like deposits and withdrawals.. */
+
+class Customer {
+    
+    String name;
+    long accountNumber;
+    double balance;
+    
+    Customer(String name, long accountNumber, double balance) {
+        this.name = name;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+    
+    public void deposit(int amount) {
+        System.out.println("\nAmount Rs."+amount+" Deposited Succesfully.");
+        balance += amount;
+    }
+    
+    public void withdraw(int amount) {
+        if (amount>balance) {
+            System.out.println("\nInsufficient Balance");
+        } else {
+            System.out.println("\nWithdrawl Amount : "+amount);
+            balance -= amount;
+        }
+    }
+    
+    public void customerDetails() {
+        System.out.println("\nName : "+name+"\nAccount Number : "+accountNumber+"\nBalance : "+balance);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	   Customer c1 = new Customer("Shubh", 030574, 0);
+	   c1.customerDetails();
+	   
+	   c1.deposit(3000);
+	   
+	   c1.withdraw(4000);
+	   
+	   c1.withdraw(1200);
+	   c1.customerDetails();
+	   
+	}
+}
+
+/*  You are building a student database system. Create a class called Student with instance variables name, age,
+    and grade. Implement multiple constructors to initialize the student object with different combinations of parameters.
+    Create objects of the Student class using different constructors, providing the necessary details such as name,
+    age, and grade. Display the details of the students, including their names, ages, and grades. */
+
+class Student {
+    
+    String name;
+    int age;
+    int grade;
+    
+    Student() {
+        name = "Unknown";
+        age = 0;
+        grade = 0;
+    }
+    
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    Student(String name, int age, int grade) {
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+    
+    public void printDetails() {
+        System.out.println("\nName : "+name+"\nAge : "+age+"\nGrade : "+grade);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+        
+        Student s1 = new Student();
+        s1.printDetails();
+        
+        Student s2 = new Student("Shubh", 20);
+        s2.printDetails();
+        
+        Student s3 = new Student("Shubham", 20, 11);
+	    s3.printDetails();
+	}
+}
+
+/*  You are a contractor working on a construction project. As part of the project, you need to calculate the total area
+    of multiple rectangular rooms in a building. Create a class called Room with instance variables length and width.
+    Implement a method calculateArea() that calculates and returns the area of the room.
+
+    Now, create another class called Building with an instance variable rooms that represents an array of Room objects.
+    Implement a method calculateTotalArea() in the Building class that iterates over the array of rooms, calculates the
+    area of each room using the calculateArea() method, and returns the total area of all the rooms combined.
+
+    Create an object of the Building class and add multiple Room objects to the rooms array. Then, invoke 
+    the calculateTotalArea() method to obtain the total area of all the rooms in the building.
+
+    Question: For the construction project, you have a building with three rooms. The dimensions of the rooms are as follows:
+    Room 1: Length = 12 meters, Width = 8 meters
+    Room 2: Length = 10 meters, Width = 6 meters
+    Room 3: Length = 15 meters, Width = 10 meters
+
+    Using the Room and Building classes, calculate and display the total area of all the rooms in the building.
+
+    Note: Assume that the Room and Building classes have been appropriately implemented, including constructors,
+    instance variables, and methods.
+
+    Hint: Create Room objects with the given dimensions and add them to the rooms array in the Building class.
+    Then, invoke the calculateTotalArea() method to obtain the total area.. */
+
+class Room {
+    double length;
+    double width;
+    
+    Room(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+    
+    public double calculateArea() {
+        return (length*width);
+    }
+}
+
+class Building {
+    Room rooms[];
+    int size;
+    
+    Building(int size) {
+        this.size = size;
+        rooms = new Room[size];    
+    }
+    
+    public double calculateTotalArea() {
+        int total_area = 0;
+        
+        for (int i=0;i<size;i++) {
+            total_area += rooms[i].calculateArea();
+        }
+        return total_area;
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+        Building b = new Building(3);
+        
+        Room r1 = new Room(12, 8);
+        Room r2 = new Room(10, 6);
+        Room r3 = new Room(15, 10);
+        
+        b.rooms[0] = r1;
+        b.rooms[1] = r2;
+        b.rooms[2] = r3;
+        
+        System.out.println("Total Area : "+ b.calculateTotalArea() );
+	}
+}
+
+/*  You are developing a banking application. Implement a class called BankAccount with private instance variables
+    accountNumber and balance. Implement public methods deposit() and withdraw() to allow users to perform transactions.
+    Create an object of the BankAccount class and simulate a few deposit and withdrawal transactions. Display the final
+    balance of the account. */
+
+class BankAccount {
+    int accountNumber;
+    int balance;
+    
+    BankAccount(int accountNumber, int balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+    
+    public void deposit(int amount) {
+        System.out.println("\nAmount Rs."+amount+" Deposited Successfully");
+        balance += amount;
+    }
+    
+    public void withdraw(int amount) {
+        if (amount>balance) {
+            System.out.println("\nWithdrawl not possible.");
+        } else {
+            System.out.println("\nWithdrawl Amount : "+amount);
+            balance -= amount;
+        }
+    }
+    
+    public void display() {
+        System.out.println("\nAvailable Balance : "+balance);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+        BankAccount b = new BankAccount(2345, 0);
+        
+        b.deposit(5000);
+        
+        b.deposit(3000);
+        
+        b.withdraw(4000);
+        
+        b.display();
+	}
+}
+
+/*  You are building a social media platform. Implement a class called Post with private instance variables content
+    and likes. Implement public methods getContent() and likePost() to allow users to access and interact with the post.
+    Create an object of the Post class and simulate user interactions by accessing the content and liking the post
+    multiple times. Display the final number of likes on the post. */
+
+class Post {
+    private String content;
+    private int likes;
+    
+    Post(String content) {
+        this.content = content;
+    }
+    
+    public void getContent() {
+        System.out.println("\nContent : "+content);
+    }
+    
+    public void likePost() {
+        System.out.println("\nPost Liked");
+        likes += 1;
+    }
+    
+    public void display() {
+        System.out.println("\nTotal Likes : "+likes);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+        Post p = new Post("Gaming");
+        
+        p.getContent();
+        p.likePost();
+        p.likePost();
+        
+        p.display();
+	}
+}
+
+/*  You are designing a university management system. Implement a class called Student with private instance variables
+    name and studentID. Implement public methods getName() and displayStudentID() to allow authorized users to access
+    the student's name and display their ID. Create an object of the Student class and demonstrate how authorized users
+    can access the student's name and display their ID. */
+
+class Student {
+    private String name;
+    private int studentID;
+    
+    Student(String name, int studentID) {
+        this.name = name;
+        this.studentID = studentID;
+    }
+    
+    public void getName() {
+        System.out.println("Name : "+name);
+    }
+    
+    public void displayStudentID() {
+        System.out.println("Student ID : "+studentID);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+        
+        Student s1 = new Student("Shubham", 21152);
+        s1.getName();
+        s1.displayStudentID();
+        
+        Student s2 = new Student("Shubh", 15201);
+        s2.getName();
+        s2.displayStudentID();
+	}
+}
+
+/*  You are developing a password manager application. Implement a class called Password with private instance variable
+    password. Implement public methods setPassword() and validatePassword() to allow users to set and validate their passwords.
+    Create an object of the Password class and simulate the process of setting and validating a password. Display a message
+    indicating whether the password is valid or not. */
+
+class Password {
+    private String password;
+    
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public void validatePassword(String password) {
+        if (this.password==password) {
+            System.out.println("\nEntered Password is valid.");
+        } else {
+            System.out.println("\nEntered Password is not valid");
+        }
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+        
+        Password p = new Password();
+        p.setPassword("pas#@02");
+        
+        p.validatePassword("pas02");
+        p.validatePassword("pas#@02");
+	}
+}
+
+/*  You are working on a library management system. Implement a class called Book with private instance variables title,
+    author, and availableCopies. Implement public methods getTitle(), getAuthor(), borrowBook(), and returnBook() to allow
+    users to access book details and perform borrowing and returning operations. Create an object of the Book class
+    representing a book in the library and simulate borrowing and returning operations. Display the book details and the
+    current number of available copies. */
+
+class Book {
+    
+    private String title;
+    private String author;
+    private int availableCopies;
+    
+    Book(String title, String author, int availableCopies) {
+        this.title = title;
+        this.author = author;
+        this.availableCopies = availableCopies;
+    }
+    
+    public void getTitle() {
+        System.out.println("Title : "+title);
+    }
+    
+    public void getAuthor() {
+        System.out.println("Author : "+author);
+    }
+    
+    public void borrowBook(int copies) {
+        if (copies>availableCopies) {
+            System.out.println("\n"+copies+" Copies are not Available\n");
+        } else {
+            System.out.println("\nBorrowed Copies : "+copies+"\n");
+            availableCopies -= copies;
+        }
+    }
+    
+    public void returnBook(int copies) {
+        System.out.println("\n"+copies+" Copies Returned\n");
+        availableCopies += copies;
+    }
+    
+    public void bookDetails() {
+        getTitle();
+        getAuthor();
+        System.out.println("Available Books : "+availableCopies);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+        
+        Book b = new Book("OP", "ODA", 525);
+        b.bookDetails();
+        
+        b.borrowBook(120);
+        b.bookDetails();
+        
+        b.returnBook(40);
+        b.bookDetails();
+	}
+}
