@@ -1,0 +1,138 @@
+// Student Grade Analyzer
+import java.util.Scanner;
+
+class Student {
+    Scanner read = new Scanner(System.in);
+
+    String name;
+    int total_subjects;
+    int students_marks[];
+    String student_subjects[];
+    
+    
+    public void setter(String name, int n) {
+        this.name = name;
+        total_subjects = n;
+        students_marks = new int[total_subjects];
+        student_subjects = new String[total_subjects];
+    }
+    
+    public void fillDetails() {
+        System.out.println("\nEnter "+name+"'s Marks ----");
+        
+        for (int i=0;i<total_subjects;i++) {
+            System.out.print("\nEnter name of Subject "+(i+1)+" : ");
+            String sub_name = read.nextLine();
+
+            student_subjects[i] = sub_name;
+
+            System.out.print("Enter "+student_subjects[i]+" Marks : ");
+            int n = read.nextInt();
+
+            String s = read.nextLine();
+
+            students_marks[i] = n;
+        }
+    }
+    
+    public void printDetails() {
+        System.out.println("Name : "+name);
+        for (int i=0;i<total_subjects;i++) {
+            System.out.println(student_subjects[i]+" : "+students_marks[i]);
+        }
+    }
+    
+    public int total_marks() {
+        int sum = 0;
+        for (int i=0;i<total_subjects;i++) {
+            sum += students_marks[i];
+        }
+        return sum;
+    } 
+    
+    public void calculateGrade() {
+        int percentage = (total_marks() / total_subjects) ;
+        
+        if (percentage>=60 && percentage<=100) {
+            System.out.println("Grade : A");
+        } else if (percentage>=40 && percentage<60) {
+            System.out.println("Grade : B");
+        } else {
+            System.out.println("Grade : C");
+        }
+    }
+    
+    public void highestAndLowest() {
+        int max = students_marks[0];
+        
+        for (int i=0;i<total_subjects;i++) {
+            if (students_marks[i] > max)
+                max = students_marks[i];
+        }
+        
+        System.out.println("Highest Marks : "+max);
+        
+        int min = students_marks[0];
+        
+        for (int i=0;i<total_subjects;i++) {
+            if (students_marks[i] < min)
+                min = students_marks[i];
+        }
+        
+        System.out.println("Lowest Marks : "+min);
+    }
+}
+
+public class Student_Grade_Analyzer
+{
+	public static void main(String[] args) {
+        Scanner read = new Scanner(System.in);
+        
+        // Total Students
+        System.out.print("Enter total Number of Students : ");
+        int total = read.nextInt();
+        
+        // Array to Store Different Student's Object
+        Student arr[] = new Student[total];
+        
+        // Fill Student Details
+        for (int i=0;i<total;i++) {
+            
+            String s = read.nextLine();
+            
+            // Student Name
+            System.out.print("\nEnter name of Student "+(i+1)+" : ");
+            String name = read.nextLine();
+            
+            // Total Number of Subjects
+            System.out.print("Enter total Number of Subjects : ");
+            int num = read.nextInt();
+            
+            Student s1 = new Student();
+            
+            s1.setter(name,num);
+            
+            s1.fillDetails();
+            
+            arr[i] = s1;
+        }
+        
+        // Print Student Details
+        for (int i=0;i<total;i++) {
+            
+            System.out.println("\n\n"+arr[i].name+"'s Result :");
+            System.out.println("-------------------------------------------------");
+            
+            arr[i].printDetails();
+            
+            arr[i].highestAndLowest();
+            
+            System.out.println("Total Marks : "+ arr[i].total_marks() );
+            
+            arr[i].calculateGrade();
+            
+            System.out.println("-------------------------------------------------");
+        }
+        read.close();
+	}
+}
